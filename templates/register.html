@@ -1,0 +1,88 @@
+
+<html>
+<head>
+    <title>
+        Registration Page
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div align="center">
+            <h3>Please register to enter into my website</h3>
+    </div>
+    {% if data %}
+        {{ data }}
+    {% endif %}
+    {% if phonedata %}
+        {{ phonedata }}
+    {% endif %}
+    <div>
+        <form action="{% url 'signup' %}" method="post" name="register">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        Name    :
+                    </td>
+                    <td>
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Phone no    :
+                    </td>
+                    <td>
+                        <input type="text" name="number" placeholder="phone number" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email   :
+                    </td>
+                    <td>
+                        <input type="text" name="email" placeholder="Enter your Mail ID" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Address     :
+                    </td>
+                    <td>
+                        <input type="text" name="add" placeholder="Give your address">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password    :
+                    </td>
+                    <td>
+                        <input type="password" name="pass1" placeholder="password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Retype Password     :
+                    </td>
+                    <td>
+                        <input type="password" name="pass2" placeholder="password" required>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <th></th>
+                    <th align="right">
+                        <button type="reset"> Clear</button>
+                        <button type="submit">SignUp</button>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

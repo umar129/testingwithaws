@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>
+        forgot password page
+    </title>
+    <script>
+function phoneNumberCheck(phoneNumber)
+{
+   var regEx = /^\d{10}$/;
+   if(phoneNumber.value.match(regEx))
+     {
+      return true;
+     }
+   else
+     {
+     alert("Please enter a valid phone number it should be 10 digits.");
+     return false;
+     }
+}
+</script>
+</head>
+<body bgcolor="#f0fff0"><center>
+
+    <form action="{% url 'f_pwd_fun' %}" method="post" name="form1">
+        {% csrf_token %}
+            Phone Number: <input type='text' name='phone_number'/></br></br>
+                <input type="submit" name="submit" value="Submit"
+                    onclick="phoneNumberCheck(document.form1.phone_number)"/>
+        <input type="reset" name="clear">
+    </form>
+    <a href="{% url 'login' %}"><h4>Go Back...</h4></a>
+    {% if pwd_data %}
+        <br>
+        {{ pwd_data }}
+    {% endif %}
+</center>
+
+</body>
+</html>

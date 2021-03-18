@@ -1,0 +1,24 @@
+
+<html>
+<head>
+    <title>Main website</title>
+</head>
+<body bgcolor="#f0fff0">
+
+    {% if data %}
+        <h4>{{ data }}! welcome to my website </h4>
+    {% endif %}
+
+    {% if logindata %}
+        <h4>{{ logindata }}! welcome to my website </h4>
+    {% endif %}
+
+    <form action="{% url 'logout' %}">
+
+        {% csrf_token %}
+
+        <button type="submit">LogOut</button>
+
+    </form>
+</body>
+</html>
